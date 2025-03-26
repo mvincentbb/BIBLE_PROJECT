@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function GeneratePDF() {
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Your PDF is ready!</h1>
+      <h1 className="text-2xl font-bold mb-4">Your PDF  also is ready!</h1>
       <PDFDownloadLink 
         document={<MyDocument />} 
         fileName="document.pdf"

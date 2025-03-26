@@ -13,8 +13,7 @@ const PDFDownloadButton = dynamic(() =>
 
 export default function GeneratePDF() {
   const [isClient, setIsClient] = useState(false);
-  const bibleText = `1.1 Au commencement, Dieu créa les cieux et la terre. ... (rest of Genesis 1 text)`; // Replace with your actual text
-  const pageNumber = 1;
+
   
   useEffect(() => {
     setIsClient(true);
@@ -22,11 +21,11 @@ export default function GeneratePDF() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Your PDF is ready!</h1>
+      <h1 className="text-2xl font-bold mb-4">Your PDF is  ready!</h1>
       
       {isClient ? (
-        <PDFDownloadButton />
-        ,<PDFPreview  />
+        
+        <PDFPreview  />
       ) : (
         <button className="bg-gray-300 text-white font-bold py-2 px-4 rounded" disabled>
           Loading PDF...
