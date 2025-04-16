@@ -26,7 +26,8 @@ Font.register({
 const styles1 = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#E4E4E4',
+    // backgroundColor: '#E4E4E4',
+    backgroundColor: documentConfig.backgroundColor,
     padding: 20,
     paddingBottom: 40,
   },
@@ -98,6 +99,7 @@ const styles1 = StyleSheet.create({
 const styles = StyleSheet.create({
     page: {
       flexDirection: 'column',
+      backgroundColor: '#E4E4E4',
       backgroundColor: '#E4E4E4',
       padding: 20,
       paddingBottom: 40,
@@ -271,7 +273,7 @@ const BibleBookDocument = ({ bookName, bookVerses }) => (
                 </View>
                 <View fixed style={styles.rightColumn}>
                 {/* <View style={styles.backgroundPattern} fixed /> */}
-                  {/* <Svg style={styles.dottedBackground} viewBox="-10 -10 160 0">
+                  <Svg style={styles.dottedBackground} viewBox="-10 -10 160 0">
                     {Array.from({ length: 40 }).map((_, rowIndex) => (
                       <React.Fragment key={rowIndex}>
                         {Array.from({ length: 8 }).map((_, colIndex) => (
@@ -279,7 +281,7 @@ const BibleBookDocument = ({ bookName, bookVerses }) => (
                         ))}
                       </React.Fragment>
                     ))}
-                  </Svg> */}
+                  </Svg>
                    <View style={styles.dottedLineContainer} fixed>
                         {/* {Array.from({ length: 40 }).map((_, index) => (
                          <View key={index} style={styles.dottedLine} />
@@ -302,7 +304,7 @@ const BibleBookDocument = ({ bookName, bookVerses }) => (
                 <Text style={styles.footerRight} render={({ pageNumber }) => ` ${pageNumber}`} />
               </View>
               <View fixed style={styles.verticalTextContainer}>
-                <Text style={styles.verticalText}>Psaumes</Text>
+                <Text style={styles.verticalText}>{bookName}</Text>
               </View>
             </Page>
           </Document>

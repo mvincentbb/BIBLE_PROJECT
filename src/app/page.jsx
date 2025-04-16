@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const HomePage = () => {
   const [pdfUrl, setPdfUrl] = useState(null);
   const [loading, setLoading] = useState(false);
-  const bookName = 'Psaume'; // Example book name, you can change this as needed
+  const bookName = 'Esther'; // Example book name, you can change this as needed
 
   const handlePreview = async () => {
     setLoading(true);

@@ -1,4 +1,7 @@
 {
     "fontFamily": "Roboto",
-    "fontSize": 12
+    "fontSize": 12,
+    "backgroundColor": "#FAF9F6",
+    "secondaryBackgroundColor": "#FDF6E3",
+    "textColor": "#333333"
   }
