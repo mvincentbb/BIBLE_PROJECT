@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import MyDocument from './MyDocument';
 
-const PDFPreview = () => {
+const PDFPreview3 = () => {
   const [viewerHeight, setViewerHeight] = useState(600);
   const bibleText = `1.1 Au commencement, Dieu créa les cieux et la terre.
 1.2 La terre était informe et vide: il y avait des ténèbres à la surface de  l'abîme, et l'esprit de Dieu se mouvait au-dessus des eaux.
@@ -127,6 +127,58 @@ const PDFPreview2 = () => {
           <MyDocument bibleTextChunks={bibleTextChunks} bookAbbreviation={bookAbbreviation} />
         </PDFViewer>
       </div>
+    </div>
+  );
+};
+
+
+
+
+const PDFPreview = () => {
+  const [viewerHeight, setViewerHeight] = useState(600);
+
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="flex flex-col gap-4 mb-6">
+        <h2 className="text-xl font-semibold text-gray-700">Download Bible Books as PDFs</h2>
+        <p className="text-gray-600">
+          Click the buttons below to download each book of the Bible as a separate PDF file.
+        </p>
+      </div>
+
+      {/* Render the MyDocument component, which now contains the download links */}
+      <MyDocument />
+
+      {/* You can remove the PDFViewer if you only want the download links */}
+      {/*
+      <div className="border rounded mt-6">
+        <PDFViewer
+          width="100%"
+          height={viewerHeight}
+          className="border-0"
+          showToolbar={false}
+        >
+          <MyDocument />
+        </PDFViewer>
+      </div>
+      */}
+
+      <div className="flex items-center mt-4">
+        <label htmlFor="viewer-height" className="mr-2 text-sm text-gray-600">Preview size:</label>
+        <select
+          id="viewer-height"
+          value={viewerHeight}
+          onChange={(e) => setViewerHeight(Number(e.target.value))}
+          className="border rounded p-1 text-sm"
+        >
+          <option value={400}>Small</option>
+          <option value={600}>Medium</option>
+          <option value={800}>Large</option>
+        </select>
+      </div>
+      <p className="text-gray-500 mt-4 text-sm">
+        Note: The preview might not accurately represent the individual book PDFs. Click the download buttons to generate the specific book files.
+      </p>
     </div>
   );
 };
