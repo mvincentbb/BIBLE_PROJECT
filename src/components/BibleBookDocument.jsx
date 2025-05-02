@@ -99,8 +99,10 @@ const styles1 = StyleSheet.create({
 const styles = StyleSheet.create({
     page: {
       flexDirection: 'column',
-      backgroundColor: '#E4E4E4',
-      backgroundColor: '#E4E4E4',
+      // backgroundColor: '#E4E4E4',
+      // backgroundColor: documentConfig.backgroundColor,
+      // backgroundColor: documentConfig.backgroundColor,
+      backgroundColor: documentConfig.secondaryBackgroundColor,
       padding: 20,
       paddingBottom: 40,
        // Add some space for the footer
@@ -262,7 +264,7 @@ const BibleBookDocument = ({ bookName, bookVerses }) => (
                     return chapters;
                   }, {})).sort((a, b) => a.chapter - b.chapter).map((chapterData) => (
                     <View key={`${bookName}-${chapterData.chapter}`} style={styles.chapter}>
-                      <Text style={{ fontWeight: 'bold', marginBottom: 5 }}>Chapter {chapterData.chapter}</Text>
+                      {/* <Text style={{ fontWeight: 'bold', marginBottom: 5 }}>Chapter {chapterData.chapter}</Text> */}
                       {chapterData.verses.map((verse) => (
                         <Text style={styles.text} key={`${verse.book}-${chapterData.chapter}-${verse.verse}`}>
                           {verse.verse}. {verse.text}
@@ -282,11 +284,11 @@ const BibleBookDocument = ({ bookName, bookVerses }) => (
                       </React.Fragment>
                     ))}
                   </Svg>
-                   <View style={styles.dottedLineContainer} fixed>
-                        {/* {Array.from({ length: 40 }).map((_, index) => (
+                   {/* <View style={styles.dottedLineContainer} fixed>
+                        {Array.from({ length: 40 }).map((_, index) => (
                          <View key={index} style={styles.dottedLine} />
-                                 ))} */}
-                    </View>
+                                 ))}
+                    </View> */}
 
                 </View>
               </View>

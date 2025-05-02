@@ -72,9 +72,9 @@ Font.register({ family: 'Roboto-Serif', src: path.resolve(process.cwd(), 'public
 
 export async function GET() {
   const bibleData = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'src/bible/segond.json')));
-   const selectedBooks = ['Genèse', 'Exode']; // French Bible example
+   const selectedBooks = ['Ruth', 'Esther']; // French Bible example
 
-    const books1 = Object.entries(
+    const books = Object.entries(
       bibleData.verses.reduce((acc, verse) => {
         if (selectedBooks.includes(verse.book_name)) {
           if (!acc[verse.book_name]) acc[verse.book_name] = [];
@@ -86,7 +86,7 @@ export async function GET() {
       bookName,
       verses,
     }));
-  const books = Object.entries(
+  const books2 = Object.entries(
     bibleData.verses.reduce((acc, verse) => {
       if (!acc[verse.book_name]) acc[verse.book_name] = [];
       acc[verse.book_name].push(verse);
