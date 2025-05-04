@@ -23,78 +23,7 @@ Font.register({
   src: path.resolve(process.cwd(), 'public/fonts/Roboto.ttf'),
 });
 
-const styles1 = StyleSheet.create({
-  page: {
-    flexDirection: 'column',
-    // backgroundColor: '#E4E4E4',
-    backgroundColor: documentConfig.backgroundColor,
-    padding: 20,
-    paddingBottom: 40,
-  },
-  text: {
-    fontFamily: 'Roboto',
-    fontSize: documentConfig.fontSize,
-    color: documentConfig.textColor,
-    lineHeight: 1.5,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  headerTitleBox: {
-    backgroundColor: 'gray',
-    padding: 8,
-    borderTopRightRadius: 4,
-    borderTopLeftRadius: 4,
-  },
-  headerTitle: {
-    color: 'white',
-    fontSize: 16,
-    fontFamily: 'Itim',
-  },
-  headerLine: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray',
-    width: '100%',
-    marginBottom: 10,
-  },
-  content: {
-    flexDirection: 'row',
-    flexGrow: 1,
-  },
-  leftColumn: {
-    flex: 2,
-    padding: 10,
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
-    fontSize: 9,
-  },
-  verticalTextContainer: {
-    position: 'absolute',
-    left: 0,
-    top: '50%',
-    transform: 'translateY(-50%) rotate(-90deg)',
-    transformOrigin: 'left top',
-  },
-  verticalText: {
-    fontSize: 20,
-    fontFamily: 'Pirata One',
-  },
-  bookTitle: {
-    fontSize: 18,
-    fontFamily: 'Roboto-Serif',
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-});
+
 
 const styles = StyleSheet.create({
     page: {
