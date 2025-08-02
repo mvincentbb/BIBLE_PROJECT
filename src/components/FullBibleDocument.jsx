@@ -321,8 +321,11 @@ const FullBibleDocument = ({ books }) => {
         {/* Footer */}
         <View fixed style={styles.footer}>
           <View style={styles.footerLeft}>
-            <Text style={styles.brandName}>@meditationfacile</Text>
+            <Link src="https://parolemeditation.com/">
+            <Text style={styles.brandName}>@parolemeditation</Text>
+            </Link>
             <View style={{ flexDirection: 'row' }}>
+              <Link src="https://www.youtube.com/@parolemeditation">
               <Image
                 src={path.resolve(
                   process.cwd(),
@@ -330,17 +333,17 @@ const FullBibleDocument = ({ books }) => {
                 )}
                 style={styles.socialIcon}
               />
-              <Image
-                src={path.resolve(process.cwd(), 'public/xIcon.png')}
-                style={styles.socialIcon}
-              />
+              </Link>
+              <Link src="https://www.tiktok.com/@parolemeditation">
               <Image
                 src={path.resolve(
                   process.cwd(),
-                  'public/metaIcon.png'
+                  'public/tiktokIcon.png'
                 )}
                 style={styles.socialIcon}
               />
+              </Link>
+              <Link src="https://www.instagram.com/parolemeditation/">
               <Image
                 src={path.resolve(
                   process.cwd(),
@@ -348,6 +351,16 @@ const FullBibleDocument = ({ books }) => {
                 )}
                 style={styles.socialIcon}
               />
+              </Link>
+              <Link src="https://ca.pinterest.com/parolemeditation/">
+              <Image
+                src={path.resolve(
+                  process.cwd(),
+                  'public/pinterestIcon.png'
+                )}
+                style={styles.socialIcon}
+              />
+              </Link>
             </View>
           </View>
           <Text

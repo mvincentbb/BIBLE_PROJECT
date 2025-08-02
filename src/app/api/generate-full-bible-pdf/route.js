@@ -59,7 +59,7 @@
 
 
 import { NextResponse } from 'next/server';
-import { renderToBuffer, Font } from '@react-pdf/renderer';
+import { renderToBuffer, Font, renderToFile, renderToStream } from '@react-pdf/renderer';
 import React from 'react';
 import FullBibleDocument from '@/components/FullBibleDocument';
 import path from 'path';
@@ -72,9 +72,9 @@ Font.register({ family: 'Roboto-Serif', src: path.resolve(process.cwd(), 'public
 
 export async function GET() {
   const bibleData = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'src/bible/segond.json')));
-   const selectedBooks = ['Ruth', 'Esther']; // French Bible example
+   const selectedBooks = ['Ruth', 'Esther', 'Exode', 'Psaume']; // French Bible example
 
-    const books = Object.entries(
+    const books2 = Object.entries(
       bibleData.verses.reduce((acc, verse) => {
         if (selectedBooks.includes(verse.book_name)) {
           if (!acc[verse.book_name]) acc[verse.book_name] = [];
@@ -86,7 +86,7 @@ export async function GET() {
       bookName,
       verses,
     }));
-  const books2 = Object.entries(
+  const books = Object.entries(
     bibleData.verses.reduce((acc, verse) => {
       if (!acc[verse.book_name]) acc[verse.book_name] = [];
       acc[verse.book_name].push(verse);
@@ -97,12 +97,22 @@ export async function GET() {
     verses,
   }));
 
-  const pdfBuffer = await renderToBuffer(<FullBibleDocument books={books} />);
+  // const pdfBuffer = await renderToBuffer(<FullBibleDocument books={books} />);
+//   const pdfBuffer = await renderToStream(<FullBibleDocument books={books} />);
+//   stream.pipe(res)
+// //   const pdfBuffer = await renderToFile(<FullBibleDocument books={books} />, '/Users/vincent/Documents/bible_project/bible_samples/Bible-Full.pdf');
 
-  return new NextResponse(pdfBuffer, {
-    headers: {
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename=\"Bible-Full.pdf\"`,
-    },
-  });
+//   return new NextResponse(pdfBuffer, {
+//     headers: {
+//       'Content-Type': 'application/pdf',
+//       'Content-Disposition': `attachment; filename=\"Bible-Full.pdf\"`,
+//     },
+//   });
+// }
+
+  const stream = await renderToStream(<FullBibleDocument books={books} />);
+
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader('Content-Disposition', 'attachment; filename="Bible-Full.pdf"');
+  stream.pipe(res);
 }
